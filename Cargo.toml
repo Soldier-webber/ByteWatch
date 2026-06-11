@@ -1,0 +1,26 @@
+[package]
+name = "ByteWatch"
+version = "0.1.0"
+edition = "2021"
+authors = ["Soldier-webber"]
+description = "A modern terminal-based system monitor similar to htop and btop"
+repository = "https://github.com/Soldier-webber/ByteWatch"
+license = "MIT"
+readme = "README.md"
+
+[dependencies]
+ratatui = "0.27"
+crossterm = { version = "0.28", features = ["events"] }
+sysinfo = "0.31"
+tokio = { version = "1.36", features = ["full"] }
+chrono = "0.4"
+thiserror = "1.0"
+
+[profile.release]
+opt-level = 3
+lto = true
+codegen-units = 1
+strip = true
+
+[profile.dev]
+opt-level = 0
